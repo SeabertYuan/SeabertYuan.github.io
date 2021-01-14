@@ -23,5 +23,67 @@
     text-transform: uppercase;
     text-align: center;
     color: lightblue;
-    padding: 100px 0;
+    padding: 50% 0;
+}
+
+/* gallery for pictures!!! */
+#gallerySection{
+    display: flex;
+    flex-direction: column;
+    background-color: lightblue;
+}
+#gallerySection h2{
+    font-family: 'Poppins', sans-serif;
+    color: lightcoral;
+    margin: 10px;
+}
+#gallery{
+    padding: 0;
+    line-height: 0;
+
+    -webkit-column-count: 3;
+    -webkit-column-gap:   2px;
+    -moz-column-count:    3;
+    -moz-column-gap:      2px;
+    column-count:         3;
+    column-gap:           2px;
+}
+#gallery img{
+    padding: 5px 0;
+    width: 97% !important;
+    height: auto !important;
+}
+@media(max-width: 800px){
+    #gallery{
+        -moz-column-count:    2;
+        -webkit-column-count: 2;
+        column-count:         2;
+    }
+}
+@media(max-width: 400px){
+    #gallery{
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}
+
+#articleSection{
+    display: flex;
+    flex-direction: column;
+    background-color: lightcoral;
+}
+#articleContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+#articleContainer .cell{
+    padding: 50px;
+}
+#articleSection h2{
+    font-family: 'Poppins', sans-serif;
+    color:  rgb(39, 111, 114);
+    margin: 10px;
 }

@@ -4,4 +4,6 @@ const links = document.querySelectorAll(".navLinks a");
 
 burger.addEventListener("click", () => {
     navLinks.classList.toggle("open");
+
+    burger.classList.toggle("toggle");
 });
