@@ -12,33 +12,32 @@
 
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="stylesheet" href="styles/main.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <div class="navBarContainer">
-            <nav class="navBar">
-                <div class="pageLabel">
-                    <label>home</label>
-                </div>
-                <div class="emptyNavSpace"></div>
-                <div class="burger">
-                    <span class="line1"></span>
-                    <span class="line2"></span>
-                    <span class="line3"></span>
-                </div>
+        <div class="navBar">
+            <div class="empty"></div>
+            <div class="navContainer">
                 <div class="navLinks">
-                    <a href="#">home</a>
-                    <a href="#">about</a>
-                    <a href="pages/projects.html">projects</a>
-                    <a href="#">contact</a>
+                    <a class="a1" href="#">home</a>
+                    <a class="a2" href="pages/about.html">about</a>
+                    <a class="a3" href="pages/projects.html">projects</a>
+                    <a class="a4" href="#">contact</a>
                 </div>
-            </nav>
+            </div>
+            <div class="burger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
         </div>
         <script src="/scripts/index.js"></script>
         <section id="mainSection" class="pageSections">
             <div class="mainContainer">
                 <div id="mainCell" class="cell">
                     <h1 class="mainTitle">seabert yuan</h1>
-                    <h2 class="mainSubtitle">don't stop dreaming</h2>
+                    <h2 id="mainSubtitle"></h2>
                 </div>
             </div>
         </section>
@@ -62,16 +61,13 @@
         </section>
         <section id="projectSection" class="pageSections">
             <div class="container">
-
                 <div id="projectTitle" class="cell">
                     <h2>projects</h2>
                 </div>
             </div>
             <div class="container">
                 <div class="specialCell">
-                    <div class="cell">
-                        coming soon
-                    </div>
+                    <div id="f1" class="cell"></div>
                     <div class="cell">
                         coming soon
                     </div>
@@ -88,14 +84,15 @@
                 </div>
             </div>
             <div id="inputContainer" class="container">
-                <form id="emailForm">
-                    <input type="text" id="emailEnter" placeholder="email">
-                    <label for="emailEnter">email</label>
-                    <input type="text" id="nameEnter" placeholder="name">
-                    <label for="nameEnter">name</label>
-
-                    <input type="submit" value="Submit">
-                </form>
+                <div id="instagram" class="externalLink">
+                    <h3>Instagram</h3>
+                </div>
+                <div id="youtube" class="externalLink">
+                    <h3>Youtube</h3>
+                </div>
+                <div id="email" class="externalLink">
+                    <h3>Gmail</h3>
+                </div>
             </div>
         </section>
     </body>

@@ -1,61 +1,82 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
 .pageSections{
     display:flex;
-    margin:0;
-    padding: 50px 0;
+    margin: 0;
+    padding: 10vh 5vw;
 }
-.container{
-    padding: 50px 0;
-    flex-wrap: wrap;
-    flex-direction: row;
+.container {
+    padding: 5vh 1vw;
 }
-.cell{
+.cell {
     padding: 25px 0;
 }
 
 /* Navigation bar */
-.navBar{
+.navBar {
     display: flex;
-    flex-wrap: nowrap;
-    z-index: 1;
+    z-index: 3;
+    position: fixed;
+    height: 6vh;
+    width: 100vw;
+    background-color: #0e0004;
+    opacity: 0.95;
 }
-.emptyNavSpace{
+.empty {
     display: flex;
-    flex: 2 2 60%;
+    flex-basis: 60vw;
+    flex-shrink: 3;
+    z-index: 3;
 }
-.navLinks{
+.navContainer {
     display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-    flex: 1 0 30%;
+    flex-basis: 40vw;
+    flex-shrink: 0;
+    z-index: 3;
+    align-content: center;
+    justify-content: right;
+}
+.navLinks {
+    display: grid;
+    z-index: 3;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+    align-self: center;
+    position: fixed;
 }
 .navLinks a{
-    padding: 0px;
-    margin: 15px;
-    font-size: 2vh;
-    color: black;
+    display: inline-block;
+    position: relative;
+    z-index: 3;
+    margin: 0.25vh 2vw 0.25vh 0;
+    padding: 15px 10px;
+    font-size: 1.3rem;
+    color: #a6002f;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
-}
-.pageLabel{
-    display: flex;
-    justify-content: flex-start;
-    text-align: center;
-    padding: 10px;
-    flex: 1 0 10%;
-}
-.pageLabel label{
-    padding: 15px;
-    text-decoration: none;
-    letter-spacing: 5px;
-    font-size: 2.5vh;
-    font-family: 'Poppins', sans-serif;
-}
-.burger{
-    display: none;
 }
 /* navigation bar hover */
-.navLinks a:hover{
-    text-decoration: underline;
+.navLinks a:after {
+    content: "";
+    display: block;
+    position: relative;
+    height: 10%;
+    left: 50%;
+    background: #a6002f;
+    transition: width 0.1s ease 0s, left 0.1s ease 0s;
+    width: 0;
+}
+.navLinks a:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 /* mobile */

@@ -8,12 +8,12 @@
 }
 .mainTitle{
     position: relative;
-    font-size: 4em;
+    font-size: 4rem;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 10px;
-    color: lightblue;
+    color: #a6002f;
     padding: 10px 0;
     z-index: 2;
     animation-name: name;
@@ -24,14 +24,15 @@
     from {letter-spacing: 5px;}
     to {letter-spacing: 10px;}
 }
-.mainSubtitle{
+#mainSubtitle{
     position: relative;
-    font-size: 3vh;
+    font-size: 2em;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     text-align: center;
+    padding: 0 30vw;
     letter-spacing: 8px;
-    color: lightcoral;
+    color: #590019;
     z-index: 2;
     animation-name: motto;
     animation-duration: .5s;
@@ -49,7 +50,8 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    opacity: 0.6;
+    opacity: 0.5;
+    filter: blur(5px);
     background: url(/resources/background-image.jpg);
     background-size: 135%;
     background-repeat: no-repeat;
@@ -61,19 +63,20 @@
 /* About Section */
 #aboutSection{
     display: flex;
-    background-color: lightblue;
+    background-color: #0e0004;
 }
 #aboutTitle{
     text-align: end;
     padding: 0px 15px;
-    font-size: 2vh;
-    color: lightcoral;
+    font-size: 2rem;
+    color: #a6002f;
     font-family: 'Poppins', sans-serif;
 }
 #aboutDesc{
     text-align: right;
     padding: 15px;
-    font-size: 2.5vh;
+    font-size: 3rem;
+    color: #590019;
     font-family: 'Poppins', sans-serif;
     animation-name: slidein;
     animation-duration: 1s;
@@ -102,18 +105,19 @@
     justify-content: center;
     text-align: center;
     padding: 15px;
-    font-size: 2.5vh;
+    font-size: 3rem;
     font-family: 'Poppins', sans-serif;
 }
 
 /* Project Section */
 #projectSection{
-    background-color: lightcoral;
+    background-color: #0e0004;
     display: flex;
     flex-direction: column;
 }
 #projectSection .container{
     padding: 10px;
+    background-color: #0e0004;
 }
 #projectTitle{
     padding: 5px;
@@ -121,8 +125,8 @@
 #projectTitle h2{
     margin: 0;
     padding: 0 20px;
-    font-size: 5vh;
-    color: rgb(39, 111, 114);
+    font-size: 2rem;
+    color: #a6002f;
     font-family: 'Poppins', sans-serif;
 }
 .specialCell{
@@ -132,7 +136,50 @@
     justify-content: space-evenly;
 }
 .specialCell .cell{
-    padding: 20px 30px;
+    height: 60vh;
+    width: 28vw;
+    padding: 0;
+    margin: 0;
+}
+#f1 {
+    position: relative;
+    z-index: 0;
+    background-color: black;
+}
+#f1::before {
+    content: "";
+    display: block;
+    z-index: 1;
+    position: absolute;
+    width: 28vw;
+    height: 60vh;
+    opacity: 1;
+    background-image: url(/resources/coding.svg);
+    background-size: 300%;
+    background-repeat: no-repeat;
+    background-position: 10% 100%;
+    transition: background-size 1.5s linear, background-position 1.5s linear, opacity 0.3s, filter 0.3s;
+}
+#f1::after {
+    content: "I built this entire website from the ground up using only HTML, CSS, and Javascript. In this article I talk about my experiences learning how to do front end development for webpages and some of the challenges I've faced.";
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    color: #590019;
+    display: none;
+    z-index: 2;
+    position: absolute;
+    width: 20vw;
+    height: 40vh;
+    padding: 10vh 4vw;
+}
+#f1:hover::after {
+    display: block;
+}
+#f1:hover::before {
+    filter: blur(5px);
+    opacity: 0.4;
+    background-size: 320%;
+    background-position: 13% 93%;
 }
 
 /*Contact Form*/
@@ -152,47 +199,6 @@
     font-size: 5vh;
     color: lightcoral;
     font-family: 'Poppins', sans-serif;
-}
-#emailForm input{
-    background-color: white;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease;
-}
-#nameEnter{
-    width: 15vh;
-}
-#emailEnter{
-    width: 25vh;
-}
-#emailForm input:focus{
-    background-color: rgb(226, 226, 226);
-}
-#emailForm{
-    display: flex;
-    flex-direction: column;
-}
-#emailForm label{
-    padding: 0 5px;
-    font-size: 2vh;
-    font-family: 'Poppins', sans-serif;
-}
-#emailForm [type=submit]{
-    width: 25vh;
-    background-color: rgb(210, 255, 255);
-    font-size: 135%;
-    font-family: 'Poppins', sans-serif;
-    border: none;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-}
-#emailForm [type=submit]:hover{
-    background-color: rgb(210, 245, 245);
-}
-#inputContainer{
-    padding: 0px;
-    margin: 10px 0 50px 0;
 }
 
 @media (max-width:800px){

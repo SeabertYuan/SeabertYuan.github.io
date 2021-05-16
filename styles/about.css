@@ -1,0 +1,9 @@
+.mainTitle {
+    position: relative;
+    z-index: 2;
+    font-size 5em;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 50% 0;
+}
