@@ -1,0 +1,62 @@
+body {
+    font-family: 'League Spartan', sans-serif;
+}
+h1, h2 {
+    letter-spacing: 0.1em;
+    font-weight: 100;
+    line-height: 1.4;
+}
+h2 {
+    border-style: none none solid none;
+    border-width: 1px;
+}
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    padding: 3% 20%;
+    justify-content: center;
+}
+.timeline-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 0 100px 0;
+}
+
+.video-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin: 30px;
+    align-items: center;
+}
+
+.description {
+    flex-shrink: 1;
+    width: 640px;
+    margin: 20px 50px;
+}
+
+.landscape {
+    margin: 20px 50px;
+    height: 360px;
+    width: 640px;
+}
+.portrait {
+    margin: 20px 50px;
+    height: 640px;
+    width: 360px;
+}
+#school-vid-desc {
+    text-align: start;
+    width: 400px;
+}
+#bio-vid-desc {
+    text-align: end;
+    width: 400px;
+}
+#poking-desc {
+    text-align: end;
+    width: 400px;
+}

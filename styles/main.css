@@ -1,85 +1,164 @@
+/* Colours
+    --background-colour: #1f1f28;
+    --alt-background-colour: #16161d;
+    --foreground-colour: #dcd7ba;
+    --alt-foreground-colour: #c8c093;
+*/
+
 #mainSection{
+    display: block;
+    height: 100%;
     padding: 0;
 }
-.mainContainer{
+.heroContainer{
     position: relative;
-    width: 100%;
-    background-color: black;
-}
-.mainTitle{
-    position: relative;
-    font-size: 4rem;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 10px;
-    color: #a6002f;
-    padding: 10px 0;
-    z-index: 2;
-    animation-name: name;
-    animation-duration: .5s;
-    animation-delay: 0.5s;
-}
-@keyframes name {
-    from {letter-spacing: 5px;}
-    to {letter-spacing: 10px;}
-}
-#mainSubtitle{
-    position: relative;
-    font-size: 2em;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 0 30vw;
-    letter-spacing: 8px;
-    color: #590019;
-    z-index: 2;
-    animation-name: motto;
-    animation-duration: .5s;
-    animation-delay: 0.5s;
-}
-@keyframes motto {
-    from {letter-spacing: 5px;}
-    to{letter-spacing: 8px;}
-}
-.mainContainer:before{
-    content: "";
-    display: block;
-    justify-content: center;
-    position: absolute;
-    width: 100%;
     height: 100%;
-    z-index: 1;
-    opacity: 0.5;
-    filter: blur(5px);
-    background: url(/resources/background-image.jpg);
-    background-size: 135%;
-    background-repeat: no-repeat;
+    width: 100%;
 }
-#mainCell{
-    padding: 26% 0;
+/*.mainContainer{*/
+    /*position: relative;*/
+    /*max-width: 910px;*/
+    /*width: 100%;*/
+    /*background-color: #1f1f28;*/
+/*}*/
+/*#heroTitle{*/
+    /*position: absolute;*/
+    /*font-size: 4rem;*/
+    /*font-family: 'League Spartan', sans-serif;*/
+    /*text-transform: uppercase;*/
+    /*letter-spacing: 10px;*/
+    /*left: 50%;*/
+    /*color: #dcd7ba;*/
+    /*padding: 10px 0;*/
+    /*z-index: 2;*/
+/*}*/
+/*#mainSubtitle{*/
+    /*position: relative;*/
+    /*font-size: 16px;*/
+    /*font-family: 'League Spartan', sans-serif;*/
+    /*[>text-transform: uppercase;<]*/
+    /*text-align: center;*/
+    /*padding: 0 30vw;*/
+    /*letter-spacing: 0.45em;*/
+    /*color: #dcd7ba;*/
+    /*z-index: 2;*/
+/*}*/
+/*.mainContainer:before{*/
+    /*content: "";*/
+    /*display: block;*/
+    /*justify-content: center;*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*z-index: 1;*/
+    /*opacity: 0.5;*/
+    /*filter: blur(5px);*/
+    /*background: url(/resources/background-image.jpg);*/
+    /*background-size: 135%;*/
+    /*background-repeat: no-repeat;*/
+/*}*/
+/*#mainCell{*/
+    /*padding: 26% 0;*/
+/*}*/
+.heroContent {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    opacity: 1;
+}
+
+/* hero slideshow stuff */
+.slick-list, .slick-track, .slick-slider, .slick-slide, .slick-slide > div, .hero-slide .hero-img {
+  height: 100%;
+}
+.hero-slideshow {
+    height: 100%;
+}
+.hero-slideshow .heroimg0 {
+    background-image: url(/resources/hero/hero-1.png);
+    background-position-y: top;
+    background-position-x: center;
+}
+.hero-slideshow .heroimg1 {
+    background-image: url(/resources/hero/hero-2.png);
+    background-color: #FF9E3B;
+    background-position-y: top;
+    background-position-x: center;
+}
+.hero-slideshow .heroimg2 {
+    background-image: url(/resources/hero/hero-3.png);
+    background-position-y: top;
+    background-position-x: center;
+}
+.hero-slideshow .heroimg3 {
+    background-image: url(/resources/hero/hero-4.png);
+    background-position-y: top;
+    background-position-x: center;
+}
+.hero-slideshow .hero-img {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+button {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.slide-dots {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+}
+.slide-dots li button {
+  font-size: 10px;
+  color: #c5c7c7;
+  width: 10px;
+  height: 10px;
+  background-color: #c5c7c7;
+  border-radius: 50%;
+}
+.slide-dots li.slick-active button {
+  color: #88543f;
+  background-color: #88543f;
 }
 
 /* About Section */
 #aboutSection{
     display: flex;
-    background-color: #0e0004;
+    background-color: #1f1f28;
 }
 #aboutTitle{
     text-align: end;
     padding: 0px 15px;
-    font-size: 2rem;
-    color: #a6002f;
-    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    color: #dcd7ba;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 100;
+}
+#aboutName {
+    font-family: 'League Spartan', 'Noto Sans SC', sans-serif;
+    font-weight: 100;
 }
 #aboutDesc{
     text-align: right;
     padding: 15px;
     font-size: 3rem;
-    color: #590019;
-    font-family: 'Poppins', sans-serif;
+    color: #dcd7ba;
+    font-family: 'League Spartan', sans-serif;
     animation-name: slidein;
     animation-duration: 1s;
+    font-weight: 100;
 }
 @keyframes slidein{
     0% {opacity: 0; transform: translateX(-200px);}
@@ -111,13 +190,13 @@
 
 /* Project Section */
 #projectSection{
-    background-color: #0e0004;
+    background-color: #16161d;
     display: flex;
     flex-direction: column;
 }
 #projectSection .container{
     padding: 10px;
-    background-color: #0e0004;
+    background-color: transparent;
 }
 #projectTitle{
     padding: 5px;
