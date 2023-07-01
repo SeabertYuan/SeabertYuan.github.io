@@ -1,8 +1,13 @@
-.mainTitle {
-    position: relative;
-    z-index: 2;
-    font-size 5em;
-    font-family: 'Poppins', sans-serif;
+#biography {
+    background-color:#dcd7ba;
+    display: block;
+    width: 100%;
+}
+.biographyTitle {
+    color: #16161d;
+    font-size 60px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
     text-transform: uppercase;
     text-align: center;
     padding: 50% 0;

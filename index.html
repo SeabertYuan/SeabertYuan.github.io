@@ -6,16 +6,15 @@
         <meta name="author" content="Seabert Yuan">
 
         <title>Home - Seabert Yuan</title>
-
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;500&family=Noto+Sans+JP:wght@100;300;500&family=Noto+Sans+SC:wght@100;300;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;500&family=Noto+Sans+JP:wght@100;300;500&family=Noto+Sans+SC:wght@100;300;500&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="stylesheet" href="styles/main.css">
 
-        <link rel="stylesheet" type="text/css" href="/resources/slick-1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="resources/slick-1.8.1/slick/slick.css"/>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
@@ -24,7 +23,7 @@
             <div class="empty"></div>
             <div class="navContainer">
                 <div class="navLinks">
-                    <a class="a1" href="#">home</a>
+                    <a class="a1" href="">home</a>
                     <a class="a2" href="pages/about.html">about</a>
                     <a class="a3" href="pages/projects.html">projects</a>
                     <a class="a4" href="#">contact</a>
@@ -36,6 +35,13 @@
                 <span class="line3"></span>
             </div>
         </div>
+
+        <header class="mainHeader">
+            <div id="heroTitle">
+                <h1 class="mainTitle">seabert yuan</h1>
+                <h2 id="mainSubtitle"></h2>
+            </div>
+        </header>
         
         <section id="mainSection" class="pageSection">
             <div class="heroContainer">
@@ -46,66 +52,71 @@
                         <li class="hero-img heroimg2"></li>
                         <li class="hero-img heroimg3"></li>
                     </ul>
-                    <div id="heroTitle">
-                        <h1 class="mainTitle">seabert yuan</h1>
-                        <h2 id="mainSubtitle"></h2>
-                    </div>
                 </div>
             </div>
         </section>
 
         <section id="aboutSection" class="pageSections">
-            <div id="aboutText" class="container row">
-                <div id="aboutTitle" class="cell">
-                    <h2>about me</h2>
+            <div class="pageContainer">
+                <div id="aboutText" class="container row">
+                    <div id="aboutTitle" class="cell">
+                    about me
+                    </div>
+                    <p id="aboutName">Seabert Yuan - 袁绍博</p>
+                    <div id="aboutDesc" class="cell">
+                        <p>student.</p>
+                        <br>
+                        <p>programmer.</p>
+                        <br>
+                        <p>creator.</p>
+                        <br>
+                        <p>athlete.</p>
+                        </p>
+                    </div>
                 </div>
-                <p id="aboutName">Seabert Yuan - 袁绍博</p>
-                <div id="aboutDesc" class="cell">
-                    <p>
-                    student.
-                    <br>
-                    programmer.
-                    <br>
-                    creator.
-                    </p>
-                </div>
-            </div>
-            <div id="aboutImage" class="container">
-                <div class="cell">
-                    <img src="resources/seabert-temp.jpg" alt="image of Seabert Yuan" width="500" height="650">
-                    <br>
-                    <label>seabert yuan 2020</label>
+                <div id="aboutImage" class="container">
+                    <img src="resources/seabert2023.jpg" alt="image of Seabert Yuan" width="350" height="455">
+                    <p id="imageCred">Xu Yong 2023</p>
                 </div>
             </div>
         </section>
-        <section id="projectSection" class="pageSections">
-            <div class="container">
-                <div id="projectTitle" class="cell">
-                    <h2>projects</h2>
-                </div>
-            </div>
-            <div class="container">
-                <div class="specialCell">
-                    <div id="f1" class="cell"></div>
-                    <div class="cell">
-                        coming soon
-                    </div>
-                    <div class="cell">
-                        coming soon
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!--<section id="projectSection" class="pageSections">-->
+            <!--<div class="container">-->
+                <!--<div id="projectTitle" class="cell">-->
+                    <!--<h2>projects</h2>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="container">-->
+                <!--<div class="specialCell">-->
+                    <!--<div id="f1" class="cell"></div>-->
+                    <!--<div class="cell">-->
+                        <!--coming soon-->
+                    <!--</div>-->
+                    <!--<div class="cell">-->
+                        <!--coming soon-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</section>-->
         <section id="gallerySection" class="pageSections">
-            <div id="contactTitle" class="container">
-                <div class="cell">
-                    <h2>gallery</h2>
+            <div id="galleryContainer" class="cell">
+                <h2 id="galleryTitle">gallery</h2>
+                <div id="upperrow" class="galleryRow">
+                    <img src="resources/homegallery/2.jpg" alt="1">
+                    <img class="middleImg" src="resources/homegallery/1.jpg" alt="1">
+                    <img src="resources/homegallery/4.jpg" alt="1">
+                </div>
+                <div id="lowerrow" class="galleryRow">
+                    <img src="resources/homegallery/3.jpg" alt="1">
+                    <img class="middleImg" src="resources/homegallery/5.jpg" alt="1">
+                    <img src="resources/homegallery/6.jpg" alt="1">
                 </div>
             </div>
         </section>
-        #<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-        #<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script type="text/javascript" src="/resources/slick-1.8.1/slick/slick.min.js"></script>
+        <!--<script src="/scripts/main.js"></script>-->
         <script src="/scripts/index.js"></script>
     </body>
 </html>
