@@ -6,16 +6,22 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
+    font-family: 'League Spartan', sans-serif;
 }
 
 .pageSections{
     display: flex;
+    justify-content: center;
     margin: 0;
-    padding: 10vh 5vw;
+    padding: 100px 0;
+}
+.pageContainer {
+    width: 700px;
+    display: flex;
+    flex-wrap: nowrap;
 }
 .container {
-    max-width: 910px;
-    padding: 5vh 1vw;
+    padding: 40px 0;
 }
 .row {
     margin: 0 auto;
@@ -23,7 +29,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     box-sizing: content-box;
 }
 .cell {
-    padding: 25px 0;
+    padding: 0;
 }
 
 /* Navigation bar */
@@ -89,7 +95,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 /* mobile */
-@media (max-width:800px){
+@media (max-width:1000px){
     .emptyNavSpace{
         display: none;
     }
@@ -158,5 +164,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         text-align: end;
         padding: 0px;
         margin: 10px 30px 5px 0;
+    }
+    .pageContainer {
+        width: 500px;
+    }
+}
+@media (max-width: 700px) {
+    .pageContainer {
+        width: 400px;
     }
 }

@@ -13,7 +13,8 @@ const quotes = [
     "live life without regrets.",
     "two broken hearts won't mend each other.",
     "1 Corinthians 13:4 | Love is patient, love is kind. It does not envy, it does not boast, it is not proud.",
-    "home-made"
+    "home-made",
+    "the race does not end after you cross the finish line.",
 ];
 
 function getRandomInt(max) {

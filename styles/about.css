@@ -1,14 +1,84 @@
-#biography {
-    background-color:#dcd7ba;
-    display: block;
-    width: 100%;
-}
-.biographyTitle {
+h2 {
     color: #16161d;
-    font-size 60px;
+    font-size: 40px;
     font-family: 'League Spartan', sans-serif;
     font-weight: 300;
     text-transform: uppercase;
     text-align: center;
-    padding: 50% 0;
+}
+table {
+    color: #16161d;
+    font-size: 23px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+    text-align: left;
+}
+p {
+    color: #16161d;
+    font-size: 18px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 100;
+    text-align: left;
+}
+
+#imgSlides {
+    height: 120px;
+    background-color: #dcd7ba;
+}
+
+#briefIntro {
+    background-color: #dcd7ba;
+}
+#generalInfo {
+    flex-direction: column;
+}
+.positionDesc {
+    text-align: center;
+}
+#tableContainer {
+    padding: 40px 200px;
+}
+.generalDescriptionsCell {
+    width: 100%;
+    border: none;
+}
+td {
+    text-align: end;
+    height: 30px;
+}
+.age, .sex, .race, .weight, .height, .clothesUpperSize, .clothesLowerSize {
+    text-align: start;
+}
+#tableStart {
+    height: 0;
+}
+.tableHeading {
+    text-align: center;
+    height: 60px;
+    font-weight: 300;
+}
+
+#biography {
+    background-color: #1f1f28;
+}
+#biographyContainer {
+    flex-direction: column;
+}
+.biographyTitle {
+    color: #C8C093;
+    font-size: 60px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+}
+#biographyText {
+    display: flex;
+    flex-direction: column;
+}
+.biographyParagraphs {
+    color: #dcd7ba;
+    font-size: 23px;
+    margin: 15px 0 0 0;
 }
