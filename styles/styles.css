@@ -95,7 +95,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 /* mobile */
-@media (max-width:1000px){
+@media (orientation: portrait){
     .emptyNavSpace{
         display: none;
     }
