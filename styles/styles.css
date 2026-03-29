@@ -33,7 +33,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 /* Navigation bar */
-.navBar {
+#navBar {
     display: flex;
     z-index: 3;
     position: fixed;
@@ -48,7 +48,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     flex-shrink: 3;
     z-index: 3;
 }
-.navContainer {
+#navContainer {
     display: flex;
     flex-basis: 40vw;
     flex-shrink: 0;
@@ -56,7 +56,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     align-content: center;
     justify-content: right;
 }
-.navLinks {
+#navLinks {
     display: grid;
     z-index: 3;
     grid-template-columns: auto auto auto auto;
@@ -65,7 +65,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     position: fixed;
     padding: 3px 0 0 0;
 }
-.navLinks a{
+.navLink {
     display: inline-block;
     position: relative;
     z-index: 3;
@@ -79,7 +79,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-weight: 300;
 }
 /* navigation bar hover */
-.navLinks a:after {
+.navLink:after {
     content: "";
     display: block;
     position: relative;
@@ -89,17 +89,17 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     transition: width 0.1s ease 0s, left 0.1s ease 0s;
     width: 0;
 }
-.navLinks a:hover:after {
+.navLink:hover:after {
     width: 100%;
     left: 0;
 }
 
 /* mobile */
-@media (orientation: portrait){
-    .emptyNavSpace{
+@media (orientation: portrait) {
+    .emptyNavSpace {
         display: none;
     }
-    .burger{
+    #navBurger {
         display: flex;
         flex-direction: column;
         align-self: center;
@@ -107,7 +107,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         margin: 15px;
         z-index: 4;
     }
-    .burger span{
+    #navBurger span {
         width: 26px;
         height: 3px;
         margin-top: 25%;
@@ -115,12 +115,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         background: black;
         transition: transform 0.2s ease, opacity 0.2s ease;
     }
-    .burger:hover{
+    #navBurger:hover {
         cursor: pointer;
     }
 
     /* action */
-    .navLinks{
+    #navLinks {
         display: flex;
         position: fixed;
         left: 0px;
@@ -139,24 +139,24 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         -webkit-clip-path: inset(0 0 0 100%);
         transition: all .10s ease-in-out;
     }
-    .navLinks.open{
+    #navLinks.open {
         clip-path: inset(0 0 0 0);
         -webkit-clip-path: inset(0 0 0 0);
     }
-    .toggle .line1{
+    .toggle #line1 {
         transform: rotate(-45deg) translate(-6px,7px);
         transition: transform 0.2s ease;
     }
-    .toggle .line2{
+    .toggle #line2 {
         transform: translateX(-10px);
         opacity: 0;
         transition: transform 0.2s ease, opacity 0.2s ease;
     }
-    .toggle .line3{
+    .toggle #line3 {
         transform: rotate(45deg) translate(-6px,-7px);
         transition: transform 0.2s ease;
     }
-    .navLinks a{
+    .navLink {
         font-family: 'League Spartan', sans-serif;
         font-weight: 300;
         font-size: 43px;
