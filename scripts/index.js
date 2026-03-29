@@ -36,25 +36,3 @@ window.onresize = function(event) {
     document.getElementById('heroTitle').style.top = (window.innerHeight - 280)+'px'
     document.getElementById('mainSection').style.height = (window.innerHeight)+'px';
 }
-
-$(document).ready(() => {
-    updateHTML(elmId, value);
-    //$('.mainSection').style.height = (document.height)+'px';
-    document.getElementById('mainSection').style.height = (window.innerHeight)+'px';
-    document.getElementById('heroTitle').style.top = (window.innerHeight - 280)+'px'
-    $('.hero-slideshow').slick({
-      autoplay: true,
-      autoplaySpeed: 4000,
-      speed: 1000,
-      fade: true,
-      dots: true,
-      arrows: false,
-      fade: true,
-      dotsClass: "slide-dots",
-      pauseOnHover: false,
-      pauseOnDotsHover: false,
-      waitForAnimate: false,
-      pauseOnFocus: false,
-    });
-  }
-);
