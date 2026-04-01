@@ -1,6 +1,11 @@
 use wasm_bindgen::prelude::*;
-use gloo::events::EventListener;
-use web_sys::Element;
+use gloo::{
+    events::EventListener,
+    timers::callback::Interval,
+};
+use web_sys::{HtmlImageElement, Element};
+
+// use futures::prelude::*;
 
 #[wasm_bindgen]
 extern "C" {
@@ -30,6 +35,16 @@ fn main() -> Result<(), JsValue> {
 
     init_hero_quote(&document)?;
 
+    let mut curr_img_idx = 0;
+
+    let image: HtmlImageElement = document.query_selector(".hero-image")?.expect("will exist").unchecked_into();
+    image.set_src(format!("./resources/hero/hero-{}.png", curr_img_idx + 1).as_str());
+
+    Interval::new(6000, move || {
+        curr_img_idx = (curr_img_idx + 1) % 4;
+        image.set_src(format!("./resources/hero/hero-{}.png", curr_img_idx + 1).as_str());
+    }).forget();
+
     Ok(())
 }
 
@@ -44,7 +59,7 @@ fn init_nav_burger(document: &web_sys::Document) -> Result<EventListener, JsValu
 }
 
 fn init_hero_quote(document: &web_sys::Document) -> Result<(), JsValue> {
-    let subtitle = document.get_element_by_id("mainSubtitle").expect("subtitle will exist");
+    let subtitle = document.query_selector(".hero-subtitle")?.expect("subtitle will exist");
     let rand: usize = getrandom::u32().map_err(|e| JsValue::from_str(e.to_string().as_str()))? as usize;
     let i = rand % QUOTES.len();
     subtitle.set_text_content(Some(QUOTES[i]));
