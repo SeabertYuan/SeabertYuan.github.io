@@ -88,7 +88,7 @@ ul {
 }
 
 /* About Section */
-#aboutSection {
+.about-page-section {
     display: flex;
     justify-content: center;
     background-color: #1f1f28;
