@@ -18,23 +18,7 @@ ul {
     height: 100vh;
     width: 100vw;
 }
-/*.mainContainer{*/
-/*position: relative;*/
-/*max-width: 910px;*/
-/*width: 100%;*/
-/*background-color: #1f1f28;*/
-/*}*/
-/*#heroTitle{*/
-/*position: absolute;*/
-/*font-size: 4rem;*/
-/*font-family: 'League Spartan', sans-serif;*/
-/*text-transform: uppercase;*/
-/*letter-spacing: 10px;*/
-/*left: 50%;*/
-/*color: #dcd7ba;*/
-/*padding: 10px 0;*/
-/*z-index: 2;*/
-/*}*/
+
 .hero {
     position: relative;
     width: 100vw;
@@ -58,7 +42,6 @@ ul {
 .hero-title {
     /*position: relative;*/
     font-size: 45px;
-    font-family: 'League Spartan', sans-serif;
     font-weight: 300;
     display: inline-block;
     vertical-align: baseline;
@@ -73,7 +56,6 @@ ul {
 
 .hero-subtitle {
     font-size: 30px;
-    font-family: 'League Spartan', sans-serif;
     font-weight: 200;
     color: #dcd7ba;
     /*color: #1f1f28;*/
@@ -88,12 +70,12 @@ ul {
 }
 
 /* About Section */
-.about-page-section {
+.about {
     display: flex;
     justify-content: center;
     background-color: #1f1f28;
 }
-.about-container {
+.about__container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -102,42 +84,41 @@ ul {
 .about-text {
     margin: 0 10px 0 0;
 }
-.about-title {
+.about-text__title {
     text-align: end;
     padding: 0px;
     margin: 0 0 41px 0;
     font-size: 50px;
     color: #dcd7ba;
-    font-family: 'League Spartan', sans-serif;
     font-weight: 200;
 }
-.about-name {
+.about-text__name {
     text-align: right;
     font-size: 30px;
     margin: 0 0 41px 0;
     color: #dcd7ba;
-    font-family: 'League Spartan', 'Noto Sans SC', sans-serif;
     font-weight: 100;
 }
-.about-description-cell {
+.about-text__description {
+    display: flex;
+    flex-direction: column;
     text-align: right;
     padding: 0px;
+}
+.about-text__link {
     font-size: 30px;
-    line-height: 20px;
+    padding-bottom: 20px;
     color: #dcd7ba;
-    font-family: 'League Spartan', sans-serif;
-    animation-name: slidein;
-    animation-duration: 1s;
     font-weight: 100;
+    text-decoration: none;
 }
 
 .about-image {
     margin: 0 0 0 10px;
 }
-.about-image-credit {
+.about-image__credit {
     text-align: right;
     color: #dcd7ba;
-    font-family: 'League Spartan', 'Noto Sans SC', sans-serif;
     font-weight: 100;
 }
 
@@ -159,7 +140,6 @@ ul {
     padding: 0 20px;
     font-size: 2rem;
     color: #a6002f;
-    font-family: 'Poppins', sans-serif;
 }
 .specialCell{
     display: flex;
@@ -195,7 +175,6 @@ ul {
 #f1::after {
     content: "I built this entire website from the ground up using only HTML, CSS, and Javascript. In this article I talk about my experiences learning how to do front end development for webpages and some of the challenges I've faced.";
     font-size: 1.5rem;
-    font-family: 'Poppins', sans-serif;
     color: #590019;
     display: none;
     z-index: 2;
@@ -227,7 +206,6 @@ ul {
 #galleryTitle {
     color: #dcd7ba;
     /*color: #1f1f28;*/
-    font-family: 'League Spartan', 'Noto Sans SC', sans-serif;
     font-weight: 200;
     font-size: 40px;
     margin: 0 0 21px 0;
@@ -256,7 +234,6 @@ ul {
     margin: 0;
     font-size: 5vh;
     color: lightcoral;
-    font-family: 'Poppins', sans-serif;
 }
 
 @media (max-width:1100px) {
