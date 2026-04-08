@@ -3,7 +3,7 @@ use gloo::{
     events::EventListener,
     timers::callback::Interval,
 };
-use web_sys::{HtmlImageElement, Element};
+use web_sys::{HtmlImageElement, HtmlElement, Element};
 
 use std::rc::Rc;
 use std::cell::RefCell;
@@ -63,6 +63,9 @@ impl HomePage {
 
         let document = web_sys::window().unwrap().document().unwrap();
         document.body().unwrap().set_inner_html(include_str!("../pages/home.html"));
+        Element::unchecked_into::<HtmlElement>(document.document_element().unwrap())
+            .style()
+            .set_css_text("background: linear-gradient(to bottom, #ffffff 50%, #16161d 50%); background-attachment: fixed;");
         HomePage::init_hero_quote(&document)?;
 
         // show initial image
@@ -111,10 +114,19 @@ impl PortfolioPage {
     }
 }
 
+struct BlogPage;
+impl BlogPage {
+    fn new() -> Self {
+        let document = web_sys::window().unwrap().document().unwrap();
+        document.body().unwrap().set_inner_html(include_str!("../pages/blog.html"));
+        Self
+    }
+}
+
 enum PageRoute {
     Home(HomePage),
     Portfolio(PortfolioPage),
-    Blog,
+    Blog(BlogPage),
     RunLog,
     NotFound,
 }
@@ -126,7 +138,7 @@ impl TryFrom<&str> for PageRoute {
         match s {
             "/" => Ok(PageRoute::Home(HomePage::new()?)),
             "/portfolio" => Ok(PageRoute::Portfolio(PortfolioPage::new()?)),
-            "/blogs" => Ok(PageRoute::Blog),
+            "/blogs" => Ok(PageRoute::Blog(BlogPage::new())),
             "/run-log" => Ok(PageRoute::RunLog),
             _ => Ok(PageRoute::NotFound),
         }

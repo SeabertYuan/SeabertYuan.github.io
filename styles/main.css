@@ -193,29 +193,28 @@ ul {
     background-position: 13% 93%;
 }
 
-#gallerySection {
+.gallery {
     display: flex;
     justify-content: center;
     /*background-color: #dcd7ba;*/
     background-color: #16161d;
 }
-#galleryContainer {
-    width: 1000px;
+.gallery__container {
+    display: flex;
     flex-direction: column;
 }
-#galleryTitle {
+.gallery__title {
     color: #dcd7ba;
     /*color: #1f1f28;*/
     font-weight: 200;
     font-size: 40px;
     margin: 0 0 21px 0;
 }
-.galleryRow {
-    flex-direction: row;
-    margin: 7px 0;
-}
-.middleImg {
-    margin: 0 7px;
+.gallery-grid {
+    align-self: center;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    gap: 7px;
 }
 
 /*Contact Form*/

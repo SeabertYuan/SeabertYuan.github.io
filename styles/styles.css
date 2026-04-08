@@ -9,6 +9,10 @@
     font-family: 'Source Sans 3', Verdana, Tahoma, sans-serif;
 }
 
+html {
+    background-attachment: fixed;
+}
+
 .page-section {
     display: flex;
     justify-content: center;
