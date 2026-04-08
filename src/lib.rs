@@ -156,7 +156,13 @@ impl App {
     pub fn new() -> Result<Self, JsValue> {
         let window = web_sys::window().expect("no global 'window' exists");
 
-        let route = Rc::new(RefCell::new(PageRoute::Home(HomePage::new()?)));
+        let route = Rc::new(RefCell::new(
+                window.location()
+                    .hash()
+                    .unwrap()
+                    .strip_prefix("#")
+                    .unwrap_or("/")
+                    .try_into()?));
 
         let route_change_route = route.clone();
         let route_change_event = EventListener::new(&window.clone(), "hashchange", move |_event| {
