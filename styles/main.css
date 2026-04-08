@@ -93,15 +93,16 @@ ul {
     justify-content: center;
     background-color: #1f1f28;
 }
-#aboutText {
+.about-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     flex: 50%;
-    margin: 0 10px 0 0;
-    /*padding: 40px 0px;*/
 }
-#aboutTitle{
+.about-text {
+    margin: 0 10px 0 0;
+}
+.about-title {
     text-align: end;
     padding: 0px;
     margin: 0 0 41px 0;
@@ -110,7 +111,7 @@ ul {
     font-family: 'League Spartan', sans-serif;
     font-weight: 200;
 }
-#aboutName {
+.about-name {
     text-align: right;
     font-size: 30px;
     margin: 0 0 41px 0;
@@ -118,7 +119,7 @@ ul {
     font-family: 'League Spartan', 'Noto Sans SC', sans-serif;
     font-weight: 100;
 }
-#aboutDesc{
+.about-description-cell {
     text-align: right;
     padding: 0px;
     font-size: 30px;
@@ -129,23 +130,11 @@ ul {
     animation-duration: 1s;
     font-weight: 100;
 }
-@keyframes slidein{
-    0% {opacity: 0; transform: translateX(-200px);}
-    40% {opacity: 100;}
-    100% {transform: translateX(0px);}
-}
-#aboutImage{
-    display: flex;
-    flex: 50%;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 40px 0px;
+
+.about-image {
     margin: 0 0 0 10px;
 }
-#aboutImage img{
-    /*padding: 15px;*/
-}
-#imageCred {
+.about-image-credit {
     text-align: right;
     color: #dcd7ba;
     font-family: 'League Spartan', 'Noto Sans SC', sans-serif;
