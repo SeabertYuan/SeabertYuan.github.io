@@ -14,132 +14,23 @@
 
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="stylesheet" href="styles/main.css">
-    </head>
-    <body>
-        <div id="navBar">
-            <div class="empty"></div>
-            <div id="navContainer">
-                <div id="navLinks">
-                    <a class="navLink" id="a1" href="">home</a>
-                    <a class="navLink" id="a3" href="pages/projects.html">projects</a>
-                    <a class="navLink" id="a4" href="#">contact</a>
-                </div>
-            </div>
-            <div id="navBurger">
-                <span id="line1"></span>
-                <span id="line2"></span>
-                <span id="line3"></span>
-            </div>
-        </div>
+        <link rel="stylesheet" href="styles/portfolio.css">
 
-        <section class="page-section hero">
-            <img class="hero-image">
-            <div class="hero-title-block">
-                <h1 class="hero-title">seabert yuan</h1>
-                <h2 class="hero-subtitle"></h2>
-            </div>
-        </section>
-
-        <section class="page-section about">
-            <div class="pageContainer">
-                <div class="container about__container about-text">
-                    <h2 class="about-text__title">about me</h2>
-                    <h3 class="about-text__name">Seabert Yuan - 袁绍博</h3>
-                    <div class="cell about-text__description">
-                        <a class="about-text__link" href="https://github.com/SeabertYuan">programmer.</a>
-                        <a class="about-text__link" href="#/blogs">student.</a>
-                        <a class="about-text__link" href="#/portfolio">creator.</a>
-                        <a class="about-text__link" href="#/run-log">runner.</a>
-                    </div>
-                </div>
-                <div class="container about__container about-image">
-                    <img src="resources/seabert2023.jpg" alt="image of Seabert Yuan" width="350" height="455">
-                    <p class="about-image__credit">Xu Yong 2023</p>
-                </div>
-            </div>
-        </section>
-        <!--<section id="projectSection" class="page-section">-->
-            <!--<div class="container">-->
-                <!--<div id="projectTitle" class="cell">-->
-                    <!--<h2>projects</h2>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="container">-->
-                <!--<div class="specialCell">-->
-                    <!--<div id="f1" class="cell"></div>-->
-                    <!--<div class="cell">-->
-                        <!--coming soon-->
-                    <!--</div>-->
-                    <!--<div class="cell">-->
-                        <!--coming soon-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</section>-->
-        <section id="gallerySection" class="page-section">
-            <div id="galleryContainer" class="container">
-                <h2 id="galleryTitle">gallery</h2>
-                <div id="upperrow" class="galleryRow">
-                    <img src="resources/homegallery/2.jpg" alt="1">
-                    <img class="middleImg" src="resources/homegallery/1.jpg" alt="1">
-                    <img src="resources/homegallery/4.jpg" alt="1">
-                </div>
-                <div id="lowerrow" class="galleryRow">
-                    <img src="resources/homegallery/3.jpg" alt="1">
-                    <img class="middleImg" src="resources/homegallery/5.jpg" alt="1">
-                    <img src="resources/homegallery/6.jpg" alt="1">
-                </div>
-            </div>
-        </section>
-        <!--<script src="/scripts/main.js"></script>-->
-        <!-- Note the usage of `type=module` here as this is an ES6 module -->
         <script type="module">
-          // Use ES module import syntax to import functionality from the module
-          // that we have compiled.
-          //
-          // Note that the `default` import is an initialization function which
-          // will "boot" the module and make it ready to use. Currently browsers
-          // don't support natively imported WebAssembly as an ES module, but
-          // eventually the manual initialization won't be required!
-          import init, { add } from './pkg/website.js';
+            import init, { add, App } from './pkg/website.js';
 
-          async function run() {
-            // First up we need to actually load the Wasm file, so we use the
-            // default export to inform it where the Wasm file is located on the
-            // server, and then we wait on the returned promise to wait for the
-            // Wasm to be loaded.
-            //
-            // It may look like this: `await init('./without_a_bundler_bg.wasm');`,
-            // but there is also a handy default inside `init` function, which uses
-            // `import.meta` to locate the Wasm file relatively to js file.
-            //
-            // Note that instead of a string you can also pass in any of the
-            // following things:
-            //
-            // * `WebAssembly.Module`
-            //
-            // * `ArrayBuffer`
-            //
-            // * `Response`
-            //
-            // * `Promise` which returns any of the above, e.g. `fetch("./path/to/wasm")`
-            //
-            // This gives you complete control over how the module is loaded
-            // and compiled.
-            //
-            // Also note that the promise, when resolved, yields the Wasm module's
-            // exports which is the same as importing the `*_bg` module in other
-            // modes
             await init();
 
             // And afterwards we can use all the functionality defined in wasm.
             const result = add(1, 2);
+
             console.log(`1 + 2 = ${result}`);
+
             if (result !== 3)
               throw new Error("wasm addition doesn't work!");
-          }
 
-          run();
+            window.app = new App();
         </script>
-    </body>
+    </head>
+    <body></body>
 </html>

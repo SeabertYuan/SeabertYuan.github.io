@@ -1,15 +1,12 @@
-body {
-    font-family: 'League Spartan', sans-serif;
-}
-h1, h2 {
-    letter-spacing: 0.1em;
-    font-weight: 100;
-    line-height: 1.4;
-}
-h2 {
-    border-style: none none solid none;
-    border-width: 1px;
-}
+/* h1, h2 { */
+/*     letter-spacing: 0.1em; */
+/*     font-weight: 100; */
+/*     line-height: 1.4; */
+/* } */
+/* h2 { */
+/*     border-style: none none solid none; */
+/*     border-width: 1px; */
+/* } */
 .portfolio {
     display: flex;
     flex-direction: column;

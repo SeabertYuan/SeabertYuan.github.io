@@ -87,10 +87,10 @@ ul {
 .about-text__title {
     text-align: end;
     padding: 0px;
-    margin: 0 0 41px 0;
+    margin: 0 0 10px 0;
     font-size: 50px;
     color: #dcd7ba;
-    font-weight: 200;
+    font-weight: 300;
 }
 .about-text__name {
     text-align: right;
