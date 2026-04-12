@@ -8,6 +8,20 @@
     utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
+
+        website = self.packages.${system}.default;
+
+        serve-script = pkgs.writeShellApplication {
+          name = "serve-website";
+          runtimeInputs = [ pkgs.miniserve ];
+          text = ''
+            set -euo pipefail
+
+            out="${website}"
+            echo "Serving $out"
+            exec miniserve "$out" --spa --index index.html -p 8080
+          '';
+        };
       in
       {
         packages.default = pkgs.rustPlatform.buildRustPackage {
@@ -42,8 +56,15 @@
             cp -r pkg $out/
             cp -r pages $out/
             cp -r resources $out/
+            cp -r styles $out/
           '';
         };
+
+        apps.default = {
+          type = "app";
+          program = "${serve-script}/bin/serve-website";
+        };
+
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             cargo

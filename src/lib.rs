@@ -62,7 +62,10 @@ impl HomePage {
         let poll_state = Rc::clone(&state);
 
         let document = web_sys::window().unwrap().document().unwrap();
+
         document.body().unwrap().set_inner_html(include_str!("../pages/home.html"));
+
+        // load the gradient after
         Element::unchecked_into::<HtmlElement>(document.document_element().unwrap())
             .style()
             .set_css_text("background: linear-gradient(to bottom, #ffffff 50%, #16161d 50%); background-attachment: fixed;");
