@@ -1,59 +1,67 @@
-/* h1, h2 { */
-/*     letter-spacing: 0.1em; */
-/*     font-weight: 100; */
-/*     line-height: 1.4; */
-/* } */
-/* h2 { */
-/*     border-style: none none solid none; */
-/*     border-width: 1px; */
-/* } */
 .portfolio {
-    display: flex;
-    flex-direction: column;
-    padding: 3% 20%;
-    justify-content: center;
+    overflow: scroll;
+    height: 100vh;
 }
-.timeline-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px 0 100px 0;
+.portfolio__header {
+    position: sticky;
+    top: 3%;
+    left: 5%;
+    float: left;
 }
 
-.video-block {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: nowrap;
-    margin: 30px;
-    align-items: center;
+.portfolio__heading {
+    color: inherit;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+.portfolio__section {
+    padding: 0 5%;
+}
+.portfolio__gallery {
+    margin-top: 2%;
 }
 
-.description {
-    flex-shrink: 1;
-    width: 640px;
-    margin: 20px 50px;
+.portfolio__section.elements {
+    --bg: oklch(from var(--s-green) calc(l - 0.15) calc(c / 2) h);
+    --fg: oklch(from var(--s-yellow) calc(l - 0.01) c h);
+    --accent: oklch(from var(--s-brown) calc(l + 0.3) calc(c * 1.7) calc(h + 30));
+    background-color: var(--bg);
+    color: var(--fg);
+}
+.elements p {
+    color: var(--accent);
 }
 
-.landscape {
-    margin: 20px 50px;
-    height: 360px;
-    width: 640px;
+.portfolio__section.boundaries {
+    --bg: oklch(from var(--s-grey) l c h);
+    --fg: var(--s-red);
+    --accent: oklch(from var(--s-orange) calc(l - 0.2) calc(c + 0.07) h);
+    background-color: var(--bg);
+    color: var(--fg);
 }
-.portrait {
-    margin: 20px 50px;
-    height: 640px;
-    width: 360px;
+.boundaries p {
+    color: var(--accent);
 }
-#school-vid-desc {
-    text-align: start;
-    width: 400px;
+
+.portfolio__section.gestures {
+    --bg: oklch(from var(--s-white) l c h);
+    --fg: var(--s-dark-grey);
+    --accent: oklch(from var(--s-blue) l c h);
+    background-color: var(--bg);
+    color: var(--fg);
 }
-#bio-vid-desc {
-    text-align: end;
-    width: 400px;
+.gestures p {
+    color: var(--accent);
 }
-#poking-desc {
-    text-align: end;
-    width: 400px;
+
+.portfolio__section.distances {
+    --bg: oklch(from var(--s-blue) calc(l - 0.59) c h);
+    --fg: oklch(from var(--s-beige) calc(l - 0.07) c h);
+    --accent: oklch(from var(--s-yellow) calc(l + 0.2) calc(c / 2) h);
+    background-color: var(--bg);
+    color: var(--fg);
+}
+
+.distances p {
+    color: var(--accent);
 }

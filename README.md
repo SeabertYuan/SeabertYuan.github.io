@@ -51,7 +51,7 @@ It would be cool if I could use the strava data to show some trends.
 
 Show my thoughts on a variety of topics: reviews, creative writing, thoughts on xyz, etc.
 
-- [ ] design skeleton
+- [x] design skeleton
 - [ ] design obsidian note <-> website link through github and fetching
 - [ ] md parsing and html generation
 

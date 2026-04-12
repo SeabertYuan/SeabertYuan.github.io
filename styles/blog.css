@@ -1,24 +1,11 @@
-:root {
-    --red: oklch(0.4404 0.1524 16.36);
-    --white: oklch(0.9031 0.0027 106.45);
-    --orange: oklch(0.6147 0.1288 59.5);
-    --blue: oklch(0.6321 0.1058 262.65);
-    --green: oklch(0.461 0.0359 166.88);
-    --brown: oklch(0.4155 0.0257 32.67);
-    --dark-grey: oklch(0.4242 0.0085 88.71);
-    --yellow: oklch(0.7995 0.1171 80.08);
-    --beige: oklch(0.8469 0.0437 89.37);
-
-    --bg-dark: oklch(from var(--blue) calc(l - 0.62) c h);
-    --bg: var(--white);
-
-    --fg-dark: oklch(from var(--beige) calc(l - 0.1) c h);
-    --fg: var(--brown);
-    --fg-muted: var(--dark-grey);
-}
-
-
 .blog {
+    --bg-dark: oklch(from var(--s-blue) calc(l - 0.62) c h);
+    --bg: var(--s-white);
+
+    --fg-dark: oklch(from var(--s-beige) calc(l - 0.1) c h);
+    --fg: var(--s-brown);
+    --fg-muted: var(--s-dark-grey);
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +17,7 @@
 .blog__header {
     margin-top: 10%;
     margin-bottom: 2%;
-    color: var(--blue);
+    color: var(--s-blue);
     font-size: 2em;
 }
 
