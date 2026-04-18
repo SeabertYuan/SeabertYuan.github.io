@@ -46,7 +46,6 @@ impl HeroState {
 
     /// Returns the index of the next image using 1-based indexing
     fn next_image(&mut self) {
-        log("next image");
         self.image_index = (self.image_index + 1) % NUM_IMAGES;
 
         self.set_active_image(self.image_index);
