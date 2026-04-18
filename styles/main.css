@@ -24,15 +24,10 @@
 }
 
 .hero-title {
-    /*position: relative;*/
     font-size: 45px;
     font-weight: 300;
     display: inline-block;
     vertical-align: baseline;
-    /*text-transform: uppercase;*/
-    /*padding: 0 30vw;*/
-    /*letter-spacing: 0.45em;*/
-    /*color: #16161d;*/
     color: #c8c093;
     z-index: 1;
     margin: 0 0 20px 0;
@@ -42,7 +37,6 @@
     font-size: 30px;
     font-weight: 200;
     color: #dcd7ba;
-    /*color: #1f1f28;*/
     z-index: 1;
 }
 

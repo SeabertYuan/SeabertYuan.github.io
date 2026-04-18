@@ -115,9 +115,9 @@ impl HomePage {
                 state_ref.borrow_mut().set_active_image(curr_i);
 
                 let poll_state_ref = state_ref.clone();
-                hero_poll_ref.replace(Interval::new(6000, move || {
+                drop(hero_poll_ref.replace(Interval::new(6000, move || {
                     poll_state_ref.borrow_mut().next_image();
-                }));
+                })));
             });
             state.borrow_mut().image_dot_refs.push((hero_dot, event_listener))
         }
