@@ -31,33 +31,50 @@ const ROUTES: [&str; 3] = [
     "#/run-log",
 ];
 
-struct HomeState {
-    image_index: usize,
+static NUM_IMAGES: u32 = 4;
+struct HeroState {
+    image_index: u32,
+    image_dot_refs: Vec::<(Element, EventListener)>,
 }
-impl HomeState {
+impl HeroState {
     fn new() -> Self {
         Self {
-            image_index: 3,
+            image_index: NUM_IMAGES - 1,
+            image_dot_refs: Vec::new(),
         }
     }
 
     /// Returns the index of the next image using 1-based indexing
-    fn next_image(&mut self) -> usize {
-        // TODO: 4 is a magic number
-        let next_index = (self.image_index + 1) % 4;
-        self.image_index = next_index;
-        self.image_index + 1
+    fn next_image(&mut self) {
+        log("next image");
+        self.image_index = (self.image_index + 1) % NUM_IMAGES;
+
+        self.set_active_image(self.image_index);
+    }
+
+    fn set_active_image(&mut self, i: u32) {
+        let document = web_sys::window().unwrap().document().unwrap();
+        let image: HtmlImageElement = document.query_selector(".hero__image")
+            .unwrap()
+            .expect("will exist")
+            .unchecked_into();
+
+        self.image_index = i % NUM_IMAGES;
+        image.set_src(format!("./resources/hero/hero-{}.png", self.image_index + 1).as_str());
+
+        self.image_dot_refs.iter()
+                    .enumerate()
+                    .for_each(|(j, (dot, _)): (usize, &(Element, EventListener))| dot.set_attribute("aria-selected", if (j as u32) == i { "true" } else { "false" }).unwrap() );
     }
 }
 
 struct HomePage {
-    state: Rc<RefCell<HomeState>>,
-    hero_poll: Interval,
+    state: Rc<RefCell<HeroState>>,
+    hero_poll: Rc<RefCell<Interval>>,
 }
 impl HomePage {
     fn new() -> Result<Self, JsValue> {
-        log("constructing home page");
-        let state = Rc::new(RefCell::new(HomeState::new()));
+        let state = Rc::new(RefCell::new(HeroState::new()));
 
         let poll_state = Rc::clone(&state);
 
@@ -71,21 +88,41 @@ impl HomePage {
             .set_css_text("background: linear-gradient(to bottom, #ffffff 50%, #16161d 50%); background-attachment: fixed;");
         HomePage::init_hero_quote(&document)?;
 
-        // show initial image
-        Element::unchecked_into::<HtmlImageElement>(document.query_selector(".hero-image")?
-            .expect("exists in the home page")).set_src(
-            format!("./resources/hero/hero-{}.png", poll_state.borrow_mut().next_image()).as_str()
-            );
+        let mut hero_dot_html = String::new();
+        // create image toggle buttons
+        for i in 1..= NUM_IMAGES {
+            hero_dot_html.push_str(r#"<button class="hero__dot" role="tab" aria-selected="false"></button>"#);
+        }
+        document.query_selector(".hero__dots")
+            .unwrap()
+            .expect("will exist")
+            .set_inner_html(&hero_dot_html);
 
-        let hero_poll = Interval::new(6000, move || {
-            log("polled");
-            let document = web_sys::window().unwrap().document().unwrap();
-            let image: HtmlImageElement = document.query_selector(".hero-image")
-                .unwrap()
-                .expect("will exist")
-                .unchecked_into();
-            image.set_src(format!("./resources/hero/hero-{}.png", poll_state.borrow_mut().next_image()).as_str());
-        });
+        let state_ref = state.clone();
+        let hero_poll = Rc::new(RefCell::new(Interval::new(6000, move || {
+            state_ref.borrow_mut().next_image();
+        })));
+
+        let hero_dots = document.get_elements_by_class_name("hero__dot");
+
+        for i in 0..hero_dots.length() {
+            let hero_dot = hero_dots.get_with_index(i).unwrap();
+            let state_ref = state.clone();
+            let curr_i = i.clone();
+            let hero_poll_ref = hero_poll.clone();
+
+            let event_listener = EventListener::new(&hero_dot, "click", move |_| {
+                state_ref.borrow_mut().set_active_image(curr_i);
+
+                let poll_state_ref = state_ref.clone();
+                hero_poll_ref.replace(Interval::new(6000, move || {
+                    poll_state_ref.borrow_mut().next_image();
+                }));
+            });
+            state.borrow_mut().image_dot_refs.push((hero_dot, event_listener))
+        }
+
+        state.borrow_mut().set_active_image(0);
 
         Ok(Self {
             state,
@@ -101,16 +138,10 @@ impl HomePage {
         Ok(())
     }
 }
-impl Drop for HomePage {
-    fn drop(&mut self) {
-        log("dropped home page");
-    }
-}
 
 struct PortfolioPage;
 impl PortfolioPage {
     fn new() -> Result<Self, JsValue> {
-        log("constructing portfolio page");
         let document = web_sys::window().unwrap().document().unwrap();
         document.body().unwrap().set_inner_html(include_str!("../pages/portfolio.html"));
         Ok(Self)
@@ -169,7 +200,6 @@ impl App {
 
         let route_change_route = route.clone();
         let route_change_event = EventListener::new(&window.clone(), "hashchange", move |_event| {
-            log("new route detected");
             let new_route: PageRoute = web_sys::window()
                 .expect("no global `window` exists")
                 .location()
@@ -180,10 +210,7 @@ impl App {
                 .try_into()
                 .unwrap();
             route_change_route.replace(new_route);
-            log("successfully rerouted");
         });
-
-        log("built app");
 
         Ok(Self {
             route,

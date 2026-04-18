@@ -21,7 +21,7 @@ Ideally nobody needs to go to the other pages
 
 For small things, static serving is fine, but as I grow my portfolio this doesn't scale.
 
-- [ ] design skeleton
+- [x] design skeleton
 - [ ] host all pictures on Google Drive and videos on Youtube
 - [ ] dynamically fetch images + videos onto page
 

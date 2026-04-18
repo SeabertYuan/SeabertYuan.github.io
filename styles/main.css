@@ -5,20 +5,6 @@
 --alt-foreground-colour: #c8c093;
  */
 
-ul {
-    list-style-type: none;
-}
-#mainSection{
-    display: block;
-    height: 100%;
-    padding: 0;
-}
-.heroContainer{
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-}
-
 .hero {
     position: relative;
     width: 100vw;
@@ -28,12 +14,10 @@ ul {
 }
 
 .hero-title-block {
-    position: absolute;
+    position: relative;
     height: 130px;
     width: 500px;
-    top: 60%;
-    left: 50%;
-    translate: -50% -50%;
+    top: 70%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -50,7 +34,7 @@ ul {
     /*letter-spacing: 0.45em;*/
     /*color: #16161d;*/
     color: #c8c093;
-    z-index: 2;
+    z-index: 1;
     margin: 0 0 20px 0;
 }
 
@@ -59,14 +43,36 @@ ul {
     font-weight: 200;
     color: #dcd7ba;
     /*color: #1f1f28;*/
-    z-index: 2;
+    z-index: 1;
 }
 
-.hero-image {
+.hero__dots {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 5%;
+    height: 100%;
+    z-index: 1;
+}
+.hero__dot {
+    background-color: #dcd7ba;
+    height: 0.7em;
+    width: 0.7em;
+    margin: 0.25em 0;
+    border-radius: 50%;
+}
+.hero__dot[aria-selected="true"] {
+    background-color: #c8c093;
+}
+.hero__image {
+    display: block;
     position: absolute;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
+    z-index: -1;
 }
 
 /* About Section */

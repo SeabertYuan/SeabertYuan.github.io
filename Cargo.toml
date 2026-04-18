@@ -21,6 +21,7 @@ features = [
   'DomTokenList',
   'HtmlElement',
   'HtmlImageElement',
+  'HtmlCollection',
   'Node',
   'Window',
   'EventTarget',
