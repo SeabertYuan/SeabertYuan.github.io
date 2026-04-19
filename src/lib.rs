@@ -81,10 +81,6 @@ impl HomePage {
 
         document.body().unwrap().set_inner_html(include_str!("../pages/home.html"));
 
-        // load the gradient after
-        Element::unchecked_into::<HtmlElement>(document.document_element().unwrap())
-            .style()
-            .set_css_text("background: linear-gradient(to bottom, #ffffff 50%, #16161d 50%); background-attachment: fixed;");
         HomePage::init_hero_quote(&document)?;
 
         let mut hero_dot_html = String::new();
@@ -215,11 +211,6 @@ impl App {
             route,
             route_change_event,
         })
-    }
-}
-impl Drop for App {
-    fn drop (&mut self) {
-        log("dropped app");
     }
 }
 

@@ -14,7 +14,7 @@ Towards building a fully functional single page application using client-side ha
 
 Ideally nobody needs to go to the other pages
 
-- [ ] add back image dots to hero
+- [x] add back image dots to hero
 - [ ] incorporate other pages when done
 
 #### Portfolio - all photography/videography work I want to show off
