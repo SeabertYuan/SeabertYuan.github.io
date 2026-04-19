@@ -152,11 +152,21 @@ impl BlogPage {
     }
 }
 
+struct RunPage;
+impl RunPage {
+    fn new() -> Self {
+        let document = web_sys::window().unwrap().document().unwrap();
+        document.body().unwrap().set_inner_html(include_str!("../pages/run.html"));
+        Self
+    }
+}
+        
+
 enum PageRoute {
     Home(HomePage),
     Portfolio(PortfolioPage),
     Blog(BlogPage),
-    RunLog,
+    RunLog(RunPage),
     NotFound,
 }
 
@@ -168,7 +178,7 @@ impl TryFrom<&str> for PageRoute {
             "/" => Ok(PageRoute::Home(HomePage::new()?)),
             "/portfolio" => Ok(PageRoute::Portfolio(PortfolioPage::new()?)),
             "/blogs" => Ok(PageRoute::Blog(BlogPage::new())),
-            "/run-log" => Ok(PageRoute::RunLog),
+            "/run-log" => Ok(PageRoute::RunLog(RunPage::new())),
             _ => Ok(PageRoute::NotFound),
         }
     }
@@ -204,7 +214,7 @@ impl App {
                 .unwrap_or("/")
                 .try_into()
                 .unwrap();
-            route_change_route.replace(new_route);
+            drop(route_change_route.replace(new_route));
         });
 
         Ok(Self {
@@ -218,10 +228,4 @@ impl App {
 #[wasm_bindgen(start)]
 fn main() -> Result<(), JsValue> {
     Ok(())
-}
-
-
-#[wasm_bindgen]
-pub fn add(a: u32, b: u32) -> u32 {
-    a + b
 }

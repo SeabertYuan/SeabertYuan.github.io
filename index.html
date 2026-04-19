@@ -16,19 +16,12 @@
         <link rel="stylesheet" type="text/css" href="styles/main.css">
         <link rel="stylesheet" type="text/css" href="styles/blog.css">
         <link rel="stylesheet" type="text/css" href="styles/portfolio.css">
+        <link rel="stylesheet" type="text/css" href="styles/run.css">
 
         <script type="module">
-            import init, { add, App } from './pkg/website.js';
+            import init, { App } from './pkg/website.js';
 
             await init();
-
-            // And afterwards we can use all the functionality defined in wasm.
-            const result = add(1, 2);
-
-            console.log(`1 + 2 = ${result}`);
-
-            if (result !== 3)
-              throw new Error("wasm addition doesn't work!");
 
             window.app = new App();
         </script>
