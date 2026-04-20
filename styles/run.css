@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
-    background-color: var(--s-white);
+    background-color: oklch(from var(--s-white) calc(l + 0.07) c h);
     height: 100vh;
     width: 100vw;
 }
@@ -11,6 +11,8 @@
     margin-top: 5%;
     margin-bottom: 2em;
     margin-left: 10%;
+    font-size: 2em;
+    color: var(--s-orange);
 }
 
 .run__container {

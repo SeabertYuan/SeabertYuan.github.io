@@ -1,0 +1,42 @@
+name: Refresh Strava Activities
+
+on:
+  # uncomment when working
+  # schedule:
+  #   - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch current tokens
+        env:
+          GH_TOKEN: ${{ secrets.GIST_TOKEN }}
+        run: |
+          gh gist view ${{ secrets.TOKENS_GIST_ID }} -f tokens.json > tokens.json
+
+      - name: Download strava sync binary
+        run: |
+          gh release download strava-sync-latest --pattern 'strava-sync' --dir ./bin
+          chmod +x ./bin/strava-sync
+
+      - name: Refresh token and fetch activities
+        env:
+          CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+        run: |
+          ./bin/strava-sync
+        shell: bash
+
+      - name: Push tokens back to secret gist
+        env:
+          GH_TOKEN: ${{ secrets.GIST_TOKEN }}
+        run: |
+          gh gist edit ${{ secrets.TOKENS_GIST_ID }} -f tokens.json tokens.json
+
+      - name: Push activities to public gist
+        env:
+          GH_TOKEN: ${{ secrets.GIST_TOKEN }}
+        run: |
+          gh gist edit ${{ secrets.DATA_GIST_ID }} -f activities.json activities.json
